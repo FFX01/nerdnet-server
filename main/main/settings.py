@@ -48,6 +48,8 @@ INSTALLED_APPS = [
     'rest_framework',
     'rest_framework.authtoken',
     'django_filters',
+    'taggit',
+    'taggit_serializer',
 
     'common',
     'global.apps.GlobalConfig',

@@ -1,7 +1,9 @@
 from django.db import models
+from django.conf import settings
+
 from imagekit.models import ImageSpecField
 from imagekit.processors import ResizeToFill
-from django.conf import settings
+from taggit.managers import TaggableManager
 
 
 User = settings.AUTH_USER_MODEL
@@ -64,6 +66,8 @@ class Image(models.Model):
         auto_now=True,
         blank=True
     )
+    source = models.URLField(blank=True)
+    tags = TaggableManager(blank=True)
 
     def __str__(self):
         return "{0}: {1} [{2}]".format(self.id, self.title, self.image.url)
