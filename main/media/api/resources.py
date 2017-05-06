@@ -17,7 +17,7 @@ class ImageFilter(filters.FilterSet):
 
 
 class ImageViewSet(ModelViewSet):
-    queryset = Image.objects.all()
+    queryset = Image.objects.order_by('-created')
     serializer_class = ImageSerializer
     permission_classes = (DRYPermissions, )
     filter_class = ImageFilter
